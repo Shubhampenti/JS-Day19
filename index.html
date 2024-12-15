@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //Double the Numbers
+    const numbers = [1, 2, 3, 4, 5];
+    const doubledNumbers = numbers.map(num => num * 2);
+    console.log(doubledNumbers);
+
+    //Using map to square each element
+    const squaredNumbers = numbers.map(num => num ** 2);
+    console.log(squaredNumbers);
+
+    //Using filter to get odd numbers
+    const oddNumbers = numbers.filter(num => num % 2 !== 0);
+    console.log(oddNumbers);
+
+    //Filter Long Words
+    const words = ["apple", "orange", "pear", "kiwi", "banana"];
+    const shortWords = words.filter(word => word.length <= 5);
+    console.log(shortWords);
+
+    //Create cards using map from fake store data
+    const fakeStoreData = [
+        { id: 1, title: "Item 1", price: 29.99, description: "Description 1", image: "https://via.placeholder.com/150" },
+        { id: 2, title: "Item 2", price: 49.99, description: "Description 2", image: "https://via.placeholder.com/150" },
+        { id: 3, title: "Item 3", price: 19.99, description: "Description 3", image: "https://via.placeholder.com/150" }
+    ];
+
+    // Generate card HTML using map
+    const cards = fakeStoreData.map(item => `
+        <div class="card" id="item-${item.id}">
+            <img src="${item.image}" alt="${item.title}" />
+            <h2>${item.title}</h2>
+            <p>${item.description}</p>
+            <p>Price: $${item.price}</p>
+        </div>
+    `).join('');
+
+
+    document.body.innerHTML = `<div class="card-container">${cards}</div>`;
+</script>
+
+</body>
+</html>
